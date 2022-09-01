@@ -18,4 +18,14 @@ func routes(_ app: Application) throws {
     
     let catalogController = CatalogController()
     app.post("getCatalog", use: catalogController.getCatalog(_:))
+    
+    let getReviewsController = GetReviewsController()
+    app.post("getReviews", use: getReviewsController.getReviews(_:))
+    
+    let addReviewsController = AddReviewController()
+    app.post("addReview", use: addReviewsController.addReview(_:))
+    
+    let removeReviewController = RemoveReviewController()
+    app.post("removeReview", use: removeReviewController.removeReview(_:))
 }
+
