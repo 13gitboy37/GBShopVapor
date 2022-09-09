@@ -27,5 +27,14 @@ func routes(_ app: Application) throws {
     
     let removeReviewController = RemoveReviewController()
     app.post("removeReview", use: removeReviewController.removeReview(_:))
+    
+    let addToBasketController = AddToBasketController()
+    app.post("addToBasket", use: addToBasketController.addToBasket(_:))
+    
+    let removeFromBasketController = RemoveFromBasketController()
+    app.post("removeFromBasket", use: removeFromBasketController.removeFromBasket(_:))
+    
+    let payBasketcontroller = PayBasketController()
+    app.post("payBasket", use: payBasketcontroller.payBasket(_:))
 }
 

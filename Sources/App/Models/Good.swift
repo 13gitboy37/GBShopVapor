@@ -11,4 +11,5 @@ struct Good: Content {
     var id_product: Int
     var product_name: String
     var price: Int
+    var quantity: Int?
 }
