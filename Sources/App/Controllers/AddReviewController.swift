@@ -15,7 +15,6 @@ class AddReviewController {
         }
         
         print(body)
-
         let response = AddReviewResponse(result: 1,
                                          user_message: "Ваш отзыв отправлен на модерацию!")
         

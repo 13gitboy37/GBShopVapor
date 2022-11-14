@@ -15,6 +15,9 @@ class ChangeUserDataController {
         }
         
         print(body)
+        body.
+        
+    
         
         let response = ChangeUserDataResponse(result: 1, user_message: "Вы успешно изменили данные УЗ", error_message: nil)
         
