@@ -18,8 +18,8 @@ class AuthController {
         
         var response = RegisterResponse(result: 0)
         
-        if UserSession.instance.user.values.contains(where: { $0.username == body.username }) {
-            var idUser = UserSession.instance.user.count
+        if !UserSession.instance.user.values.contains(where: { $0.username == body.username }) {
+            let idUser = UserSession.instance.user.count
             let user = UserStorage(id_user: idUser,
                                    username: body.username,
                                    password: body.password,
