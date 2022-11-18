@@ -5,9 +5,9 @@
 //  Created by Никита Мошенцев on 14.11.2022.
 //
 
-import Foundation
+import Vapor
 
-struct UserStorage {
+struct UserStorage: Content {
     var id_user: Int
     var username: String
     var password: String

@@ -30,15 +30,11 @@ class AuthController {
             UserSession.instance.user.updateValue(user, forKey: idUser)
             
             response = RegisterResponse(result: 1,
-                                        user_message: "Регистрация прошла успешно",
+                                        user_message: "Registration success",
                                         error_message: nil)
         } else {
-            response = RegisterResponse(result: 0, user_message: "Пользователь с таким логином уже зарегистрирован")
+            response = RegisterResponse(result: 0, user_message: "User with this login is already registered")
         }
-//        UserSession.instance.user.append(User(id_user: UserSession.instance.user.count,
-//                                              user_login: body.username,
-//                                              user_name: body.username,
-//                                              user_lastname: <#T##String#>))
        
         return req.eventLoop.future(response)
     }

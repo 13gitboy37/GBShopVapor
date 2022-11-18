@@ -16,19 +16,25 @@ class LoginController {
         
         print(body)
         
-        var currentUser = User(id_user: 0,
-                               user_login: "",
-                               user_name: "",
-                               user_lastname: "")
+        var currentUser = UserStorage(id_user: -1,
+                                      username: "",
+                                      password: "",
+                                      email: "",
+                                      gender: "",
+                                      credit_card: "",
+                                      bio: "")
         
-        var response = LoginResponse(result: 0, user: currentUser)
+        var response = LoginResponse(result: 0)
         
         if UserSession.instance.user.values.contains(where: { user in
             if user.username == body.username && user.password == body.password {
-                currentUser = User(id_user: user.id_user,
-                                   user_login: user.username,
-                                   user_name: "Ivan",
-                                   user_lastname: "Ivanov")
+                currentUser = UserStorage(id_user: user.id_user,
+                                          username: user.username,
+                                          password: user.password,
+                                          email: user.email,
+                                          gender: user.gender,
+                                          credit_card: user.credit_card,
+                                          bio: user.bio)
                 return true
             } else {
                 return false
@@ -36,6 +42,7 @@ class LoginController {
         }) {
             response = LoginResponse(result: 1, user: currentUser)
         }
+
         
         return req.eventLoop.future(response)
     }

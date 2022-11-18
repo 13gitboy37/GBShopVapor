@@ -15,9 +15,16 @@ class ChangeUserDataController {
         }
         
         print(body)
-    
         
-        let response = ChangeUserDataResponse(result: 1, user_message: "Вы успешно изменили данные УЗ", error_message: nil)
+        UserSession.instance.user[body.id_user] = UserStorage(id_user: body.id_user,
+                                                              username: body.username,
+                                                              password: body.password,
+                                                              email: body.email,
+                                                              gender: body.gender,
+                                                              credit_card: body.credit_card,
+                                                              bio: body.bio)
+        
+        let response = ChangeUserDataResponse(result: 1, user_message: "You information has been changed", error_message: nil)
         
         return req.eventLoop.future(response)
     }
