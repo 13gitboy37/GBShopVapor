@@ -19,8 +19,8 @@ class CatalogController {
         let response = CatalogDataResponse(
             page_number: 1,
             good: [
-                Good(id_product: 123, product_name: "Ноутбук", price: 45600),
-                Good(id_product: 456, product_name: "Мышка", price: 1000)])
+                Good(id_product: 123, product_name: "Ноутбук", price: 45600, image_url: "laptopcomputer"),
+                Good(id_product: 456, product_name: "Мышка", price: 1000, image_url: "computermouse.fill")])
         
         return req.eventLoop.future(response)
     }
